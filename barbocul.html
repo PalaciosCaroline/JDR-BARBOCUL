@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylebarbocul.css">
+
+    <title>BARBOCUL</title>
+
+    <base href="ressources">
+
+</head>
+
+<body>
+    <header id="header">
+            <div class="progressBar-container">
+                <div class="progressBar" id="progressBar"></div>
+            </div>
+    
+            <nav class="navbar">
+                <div class="logo"><a href="https://www.google.fr">☠</a></div>
+                <ul class="nav_ul" id="navul">
+                    <li class="navbar_item"><a href="index.html">Accueil</a> </li>
+                    <li class="navbar_item"><a href="barbocul.html">Blog🎮</a></li>
+                    <li class="navbar_item"><a href="restaurant.html">Food🐁</a></li>
+                    <li class="navbar_item"><a href="formulaire.html">Postulez🔨</a></li>    
+                </ul>
+    
+                <div class="hamburger" id="hamburger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </nav>
+    </header>
+        
+    <section class="identite">
+                <div class="nom">
+                <h1>Barbocul<br>
+                <h2>Du Brolk Marchelourd de Brol Bazaz</h2>
+                </div>
+                
+                <div class="photocv"><img src="ressources/nain.jpg" alt="Barbocul" id="image1" onmouseover="javascript:this.src='ressources/photocaroline.jpg';" onmouseout="javascript:this.src='ressources/nain.jpg';">
+                </div>
+                
+    </section>
+    <hr>
+    
+    <section class="corps">
+         
+      <div class="boite">
+        <aside class="capacite">
+          <div class="skillcapacite" >
+                <div class="name">
+                    <span>Courage</span>
+                    <span>Intelligence</span>
+                    <span>Charisme</span>
+                    <span>Adresse</span>
+                    <span>Force</span>
+                </div>
+                <div class="niveau_capacite">
+                    <div class="niveau"><div class="progress"></div></div>
+                    <div class="niveau"><div class="progress"></div></div>
+                    <div class="niveau"><div class="progress"></div></div>
+                    <div class="niveau"><div class="progress"></div></div>
+                    <div class="niveau"><div class="progress"></div></div>
+                </div>  
+            </div>    
+        </aside>     
+      </div>
+
+    <article class="competence">
+                <h3>Compétences</h3>
+               <h4>Appel du tonneau</h4>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, error. Ut officia autem animi provident nam sunt vero! Quis aspernatur sed quia quasi, alias doloribus! Minus, porro odio. Est, delectus.</p>
+               <h4>Instinct tu trésor</h4>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea in veniam perferendis iste, facere non eveniet officiis sint cupiditate delectus deleniti doloribus nesciunt excepturi itaque.</p>
+               <h4>Pénible radin</h4>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo atque ad repellat nam voluptatum odit.</p>
+               <h4>Ressemble à rien</h4>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt delectus obcaecati cumque, a repellat accusantium exercitationem nesciunt facilis tempora magni totam, asperiores minus quam, deleniti minima veniam.</p>
+               <h4>Appel des renfort</h4>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus iure sint ex deleniti in et tempore, ad eos adipisci ullam possimus quas repudiandae aspernatur perferendis eius ut sapiente asperiores doloribus porro.</p>
+    </article>
+
+</section>
+
+<!-- monstres -->
+<div class="boitemonstre">
+    <div class="monstre"><img src="ressources/monstre-Dretch1.jpg" alt="" class="img_monstre"><img src="ressources/monstre-HeresyDevil1.jpg" alt="" class="img_monstre"><img src="ressources/monstre-KoboldShaman1.jpg" alt="" class="img_monstre"><img src="ressources/monstre-Troll1.jpg" alt="" class="img_monstre">
+    </div>
+</div>
+
+<footer id="footer"><p>
+                &copy;BARBOCUL<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</footer>
+
+
+
+               <!-- script JS -->
+             <SCript>              /*JS pour noscroll lorsq burger coché*/
+                hamburger.onclick = () =>{
+                     hamburger.classList.toggle("open");
+                     navul.classList.toggle("slide");
+                     document.body.classList.toggle("noscroll");
+                }
+                            /* JS pour aggrandir l'ombre au scroll*/
+                onscroll = () => {     
+                     header.classList.add("shadowheader");
+                     footer.classList.add("shadowfooter");
+                     setTimeout(() => {
+                     header.classList.remove("shadowheader");
+                     footer.classList.remove("shadowfooter");
+                     }, 1000);
+                
+                           /*JS pour compteur de defilement de page jaune*/     
+                    const   page = document.documentElement;
+                    let totalHeight = page.scrollHeight;
+                    let visibleHeight = page.clientHeight;
+                    let scrolling = page.scrollTop;
+                    let max = page.scrollHeight - page.clientHeight;
+                      progressBar.style.width = Math.floor(scrolling/max*100)+"%";    /*Math.floor permet de donner l'arrondi*/
+        
+                    if(progressBar.style.width == "100%") 
+                    progressBar.style.backgroundColor = "green";
+                    else
+                    progressBar.style.backgroundColor = "rgb(192,127,6)";
+                }
+
+            </SCript>
+        
+</body>
+</html>

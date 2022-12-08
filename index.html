@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+            
+    <title>AVENTURIER</title>
+</head>
+
+<body>
+    <header id="header">
+            <div class="progressBar-container">
+                <div class="progressBar" id="progressBar"></div>
+            </div>
+    
+            <nav class="navbar">
+                <div class="logo"><a href="http://www.google.fr">☠</a></div>
+                <ul class="nav_ul" id="navul">
+                    <li class="navbar_item"><a href="index.html">Accueil</a> </li>
+                    <li class="navbar_item"><a href="barbocul.html">Blog🎮</a></li>
+                    <li class="navbar_item"><a href="restaurant.html">Food🐁</a></li>
+                    <li class="navbar_item"><a href="formulaire.html">Postulez🔨</a></li>    
+                </ul>
+    
+                <div class="hamburger" id="hamburger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </nav>
+    </header>
+
+    <section>
+    <article>
+            <div>
+                <h1 class="titre">Cherche aventuriers !</h1>
+
+                <div class="promotion"><a  href="restaurant.html"><div class="emoji"><img src="ressources/promotion.png" alt="promotion repas"><div class="cafardprom">🪳</div></div></a></div>
+            </div>
+
+            <p class="text">Si vous n'avez pas peur de mourir<br>n'hésitez pas à postuler pour faire parti<br>d'un super groupe d'aventuriers...☠</p>
+    </article>
+
+    <div class="pied">
+                <a href="formulaire.html"><div class="emoji"></div><img id="bouton" src="ressources/bouton2.png" alt="selection"><div class="cafardbou">🪳</div></div></a>
+    </div>
+    </section>
+    <footer id="footer">
+                <p>
+                &copy;BARBOCUL<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+    </footer>
+
+    
+
+               <!-- script JS -->
+               <SCript>              /*JS pour noscroll lorsq burger coché*/
+                hamburger.onclick = () =>{
+                     hamburger.classList.toggle("open");
+                     navul.classList.toggle("slide");
+                     document.body.classList.toggle("noscroll");
+                }
+                            /* JS pour aggrandir l'ombre au scroll*/
+                onscroll = () => {     
+                     header.classList.add("shadowheader");
+                     footer.classList.add("shadowfooter");
+                     setTimeout(() => {
+                     header.classList.remove("shadowheader");
+                     footer.classList.remove("shadowfooter");
+                     }, 1000);
+                
+                           /*JS pour compteur de defilement de page jaune*/     
+                    const   page = document.documentElement;
+                    let totalHeight = page.scrollHeight;
+                    let visibleHeight = page.clientHeight;
+                    let scrolling = page.scrollTop;
+                    let max = page.scrollHeight - page.clientHeight;
+                      progressBar.style.width = Math.floor(scrolling/max*100)+"%";    /*Math.floor permet de donner l'arrondi*/
+        
+                    if(progressBar.style.width == "100%") 
+                    progressBar.style.backgroundColor = "green";
+                    else
+                    progressBar.style.backgroundColor = "rgb(192,127,6)";
+                }
+                    
+            </SCript>
+        
+        </body>
+    </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylerestaurant.css">
+
+    <title>L'Ours à la Bière</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="progressBar-container">
+            <div class="progressBar" id="progressBar"></div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo"><a href="http://www.google.fr">☠</a></div>
+            <ul class="nav_ul" id="navul">
+                <li class="navbar_item"><a href="index.html">Accueil</a> </li>
+                <li class="navbar_item"><a href="barbocul.html">Blog🎮</a></li>
+                <li class="navbar_item"><a href="">Food🐁</a></li>
+                <li class="navbar_item"><a href="formulaire.html">Postulez🔨</a></li>    
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+   
+    <h1>L'ours à la bière 🪳</h1>
+    <article>
+        <img src="ressources/Auberge_009.jpg" alt="auberge">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum neque quos dignissimos ullam quasi facere nihil suscipit eligendi eaque? Sunt, placeat fugiat. Laborum, voluptatem facere? Nisi exercitationem ipsa nemo sequi distinctio aliquid animi dolorem, quisquam vero aspernatur laudantium vel recusandae debitis qui veritatis repellat veniam magnam facilis quaerat quia nostrum laborum accusantium iusto! Modi fugiat commodi eius eum praesentium velit animi eaque ipsa itaque minima nemo, rerum nulla facere voluptates alias perspiciatis inventore reprehenderit et nihil, voluptate consectetur voluptatibus. Impedit quo blanditiis doloribus ad dolores dolorum atque nobis illo quam tempora ipsum, autem numquam perspiciatis quis vitae exercitationem! Veniam, corporis!</p>
+    </article>
+
+    <article>
+        <img src="ressources/Auberge_019.jpg" alt="image lorem">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, illo, eveniet beatae reprehenderit, perferendis rem saepe quam id soluta aliquid tenetur exercitationem voluptates doloribus. Id pariatur placeat voluptas ipsa laboriosam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quae laborum numquam? Temporibus voluptates iste modi placeat sunt? Tempora aspernatur deleniti repellendus sit laboriosam autem ullam, quas architecto voluptatem quod debitis optio consequatur sunt natus, asperiores id accusantium dolorum perferendis.</p>
+    
+    </article>
+
+    <article>
+        <img src="ressources/Auberge_012.jpg" alt="image lorem">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eius.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolor non nisi aliquam fuga sint fugiat eum facere molestiae! Quis, odit ullam aperiam delectus perspiciatis quasi nam deserunt dolorum libero dolorem eligendi inventore voluptate facere in provident accusantium sit necessitatibus saepe ab repellendus illo officiis alias minima! Laboriosam non ab fuga? Suscipit dolore vitae, repudiandae nihil et ullam beatae, illum officiis porro sunt laborum. Sapiente impedit id dolorum architecto quasi?!</p>
+    
+    </article>
+
+    <article>
+        <img src="ressources/Auberge_010.jpg" alt="image lorem">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, temporibus nulla culpa similique id ab, delectus vero saepe fuga sit dolor debitis qui autem illo exercitationem atque totam quis? Saepe maiores nulla accusamus. Laborum obcaecati quis, amet corrupti doloribus vero id ratione veniam pariatur ex quisquam debitis dolore sequi numquam? Rem ullam itaque error sequi, eius provident, nulla aliquam, quos saepe excepturi deserunt minima modi officia est? Dolore, quis sed esse optio quod cupiditate alias placeat aperiam deleniti consectetur. Amet pariatur odit facilis cupiditate eos tempore itaque corporis odio suscipit exercitationem excepturi minima explicabo voluptatibus sed ad, placeat tenetur incidunt fugit vitae debitis quae at ullam aspernatur! Id harum et nostrum, quis sed optio quibusdam sit dolor, vel eos dignissimos.</p>
+    </article>
+
+    <footer id="footer">
+        <p>&copy;BARBOCUL<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, molestiae.</p>
+    </footer>
+ 
+                   <!-- script JS -->
+    <SCript>              /*JS pour noscroll lorsq burger coché*/
+        hamburger.onclick = () =>{
+             hamburger.classList.toggle("open");
+             navul.classList.toggle("slide");
+             document.body.classList.toggle("noscroll");
+        }
+                    /* JS pour aggrandir l'ombre header et footer au scroll*/
+        onscroll = () => {     
+             header.classList.add("shadowheader");
+             footer.classList.add("shadowfooter");
+             setTimeout(() => {
+             header.classList.remove("shadowheader");
+             footer.classList.remove("shadowfooter");
+             }, 1000);
+        
+                   /*JS pour compteur de defilement de page jaune*/     
+            const   page = document.documentElement;
+            let totalHeight = page.scrollHeight;
+            let visibleHeight = page.clientHeight;
+            let scrolling = page.scrollTop;
+            let max = page.scrollHeight - page.clientHeight;
+            progressBar.style.width = Math.floor(scrolling/max*100)+"%";    /*Math.floor permet de donner l'arrondi*/
+
+            if(progressBar.style.width == "100%") 
+            progressBar.style.backgroundColor = "green";
+            else
+            progressBar.style.backgroundColor = "rgb(192,127,6)";
+        }
+            
+    </SCript>
+
+</body>
+</html>

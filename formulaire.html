@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleformulaire.css">
+
+    <title>CANDIDATURE</title>
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="progressBar-container">
+            <div class="progressBar" id="progressBar"></div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo"><a href="http://www.google.fr">☠</a></div>
+            <ul class="nav_ul" id="navul">
+                <li class="navbar_item"><a href="index.html">Accueil</a></li>
+                <li class="navbar_item"><a href="barbocul.html">Blog🎮</a></li>
+                <li class="navbar_item"><a href="restaurant.html">Food🐁</a></li>
+                <li class="navbar_item"><a href="formulaire.html">Postulez🔨</a></li>    
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+
+          <!-- début formulaire -->
+
+<Section class="formulaire">
+<main class="container">
+ <!-- <form action="reponse.php" method="post"> pas mis de requiered dans les input car formulaire inactif-->
+        <h1 class="title" id="but">Devenez un Aventurier !</h1>
+    <div class="row">
+        <div class="inputbox">
+            <input type="text" id="nom" name="nom">
+            <label for="nom">Nom</label>
+        </div>
+        <div class="inputbox">
+            <input type="text" id="prenom" name="prenom">
+            <label for="prenom">Prénom</label>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="inputbox">
+            <input type="text" id="competence" name="competence">
+            <label for="competence">Compétences principales</label>
+        </div>
+        <div class="inputbox">
+            <select type="text" id="classe" name="classe">
+            <option disabled="disabled" selected="selected">--Quelle est votre classe</option>
+            <option value="guerrier">Guerrier🗡</option>
+            <option value="magicien">Magicien🔮</option>
+            <option value="Voleur">Voleur🔪</option>
+            <option value="Flémard">Flémard🛏</option>
+            <option value="Ingénieur">Ingénieur💡</option>
+            </select>
+            <label for="classe">Classe</label>
+        </div>
+        <div class="inputbox">
+            <select type="text" id="niveau" name="niveau">
+            <option disabled="disabled" selected="selected">--Indiquez votre niveau</option>
+            <option value="un">I-Toquard👍</option>
+            <option value="deux">II-Débutant👣</option>
+            <option value="trois">III-Survivant🦕</option>
+            <option value="quatre">IV-Expérimenté👾</option>
+            <option value="cinq">V-Héros🎮</option>
+            </select>
+            <label for="niveau">Niveau</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="inputbox">
+            <input type="number" id="age" name="age" min="1" max="200">
+            <label for="age">Age</label>
+        </div>
+        <div class="inputbox">
+            <input type="number" id="number" name="number">
+            <label for="number">Votre Téléphone</label>
+        </div>
+        <div class="inputbox">
+            <input type="mail" id="email" name="email">
+            <label for="email">Email</label>
+        </div>   
+    </div>
+
+    <div class="row">
+        <div class="inputbox">
+            <input type="text" id="address" name="address">
+            <label for="address">Adresse</label>
+        </div>
+        <div class="inputbox">
+            <input type="text" id="city" name="city">
+            <label for="city">Ville</label>
+        </div>
+        <div class="inputbox">
+            <input type="text" id="country" name="country">
+            <label for="country">Pays</label>
+        </div>
+    </div>
+
+    <div class="row">   
+        
+    <h2 id="student">Etes-vous prêt à travailler gratuitement ?</h2>
+       <div id="student">
+            <label for="student" class="radio">
+                <input class="radioone" type="radio" checked="checked" name="student" id="student">
+                <span class="checkmark"></span>
+                Oui
+            </label>
+            <label for="student" class="radio">
+                <input class="radiotwo" type="radio"  name="student" id="student">
+                <span class="checkmark"></span>
+                Non
+            </label></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <button>Envoyer🪳</button>
+    
+    <div class="afficher">Trop fragile pour l'aventure ? <br>Venez vous endurcir à la Taverne l'Ours à la Bière<br>Recrutement toute l'année - Heures sup non payées</div><a class="promotion" href="restaurant.html"><img src="ressources/promotion.png" alt="promotion"></a></div>
+    </div>    
+
+            <!-- </form> -->
+</main>
+
+</Section>
+
+<footer id="footer"><p>
+        &copy;BARBOCUL<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+</footer>
+
+
+
+       <!-- script JS -->
+     <SCript>              /*JS pour noscroll lorsq burger coché*/
+        hamburger.onclick = () =>{
+             hamburger.classList.toggle("open");
+             navul.classList.toggle("slide");
+             document.body.classList.toggle("noscroll");
+        }
+                    /* JS pour aggrandir l'ombre au scroll*/
+        onscroll = () => {     
+             header.classList.add("shadowheader");
+             footer.classList.add("shadowfooter");
+             setTimeout(() => {
+             header.classList.remove("shadowheader");
+             footer.classList.remove("shadowfooter");
+             }, 1000);
+        
+                   /*JS pour compteur de defilement de page jaune*/     
+            const   page = document.documentElement;
+            let totalHeight = page.scrollHeight;
+            let visibleHeight = page.clientHeight;
+            let scrolling = page.scrollTop;
+            let max = page.scrollHeight - page.clientHeight;
+              progressBar.style.width = Math.floor(scrolling/max*100)+"%";    /*Math.floor permet de donner l'arrondi*/
+
+            if(progressBar.style.width == "100%") 
+            progressBar.style.backgroundColor = "green";
+            else
+            progressBar.style.backgroundColor = "rgb(192,127,6)";
+        }
+
+    </SCript>
+
+</body>
+</html>

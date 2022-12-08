@@ -1,0 +1,458 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth; /*ralenti le passage sroll, visuellement plus agréable*/
+}
+
+@font-face {
+    font-family: My soul;
+    src: url("ressources/My_Soul/MySoul-Regular.ttf");
+}
+
+body{
+    font-family: My soul,roboto,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;                    /* autre font-family sympa water brush */
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+}
+
+.noscroll{
+    overflow:hidden; /*pr empècher le scroll lorsque nav en column*/
+}
+
+header{
+    background-color: #353535;
+    height: 60px;
+    width: 100%;
+    top:0;
+    position: sticky;       /*fixe header en haut sans masquer le texte en-dessous */
+    z-index: 1;   /*priorise le header pour ne pas le masquer*/
+    box-shadow: 1px 4px 4px 0px #ff00002b;   /*ombrage sous header*/
+    transition: box-shadows 1s;
+}
+
+/*travail pr agrandir ombre en de-ss du header en JS*/
+.shadowheader{
+    box-shadow: 1px 8px 7px 2px #ff51002b;
+}
+
+header a{
+    color:white;
+    text-decoration: none;
+}
+
+.progressBar-container{
+    width: 100%;
+    height: 4px;
+    background-color: rgb(138, 128, 128)
+}
+
+.progressBar{
+    height: 100%;
+    width: 0%;
+    background-color: rgb(192,127,6);
+    transition: all 0.5s;
+}
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.logo{
+    height:100%;
+    display: flex;    /*met en row (rangée) la liste (par défaut en column*/
+    align-items: center;
+    font-size: clamp(1rem,5vw,3rem); /*clamp pour responsive*/
+    padding-left:5px;
+}
+
+.logo a{
+    transition: color 0.5s;  /*action au passage de la souris*/
+}
+
+.logo a:hover{
+    color: rgb(192,127,6)
+}
+
+.nav_ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav_ul a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width:120px;
+    font-size: 1.5rem;
+}
+
+.nav_ul a:hover{
+    background-color: rgb(192,127,6, 0.4);
+    border-radius: 10px;
+    animation: loupe 1s;
+}
+
+@keyframes loupe{        /* animation  loupe barre nav*/
+    from{
+        transform: translateX(-40px) scale(1.5);
+    }
+    to{
+        transform: translateX(0) transform scale(1);
+    }
+}
+
+
+.hamburger{          /*création du burger*/
+    display: none;  /*disparition du burger sur ecran>800px*/
+    flex-direction: column;   /*flex-dir par défaut en row*/
+    justify-content: center;
+    cursor: pointer;    /*fait apparaître le pointeur*/
+    padding: 5px;
+}
+
+
+.bar1, .bar2, .bar3{            /*barres du hamburger*/
+    width: 35px;
+    height: 6px;
+    background-color: white;
+    border-radius: 5px;         /* bord arrondi */
+}
+
+.bar2, .bar3{
+    margin-top: 6px;      /*marge sur 2 et 3eme bar*/
+}
+
+.open .bar1,
+.open .bar2,
+.open .bar3{
+    background-color: rgb(192,127,6);
+    transition: all 0.7s;    /* transition changement de couleur*/
+}
+
+.open .bar1{
+    transform: translateY(200%) rotate(-45deg);
+}
+
+.open .bar3{
+    transform: translateY(-200%) rotate(45deg);
+}
+
+.open .bar2{
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+@media (max-width:800px) {    /*responsive lorsq ecran<800px)*/
+    .hamburger{
+        display: flex;
+    }       /*faire apparaître le burger lorsq ecran<800px car sinon display est en none)*/
+
+
+    .nav_ul{
+        position: fixed;
+        top: 60px;
+        left: -100%; /*pour faire disparaître le nav*/
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);     /*effet arrière trouble -webkit mit à cause du validator w3c*/
+        background-color: rgba(0, 0, 0, 0.4) ;        /*effet arrière trouble*/
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        transition: transform ease-out 0.5s; /*effet de transition, ease-in permet de commencer vite et de terminer doucement la transition ≠ ease-in*/
+    }
+
+    .slide{
+        transform: translateX(100%);
+    }
+
+
+    .nav_ul a{
+        border-bottom: 1px solid rgb(192,127,6, 0.6);
+        width: 50%;
+        justify-content: left;
+        padding: 5px;
+    }
+
+    .nav_ul a:hover{
+        animation: none;
+        border-radius: 0;
+    }
+}
+
+.identite {
+    display: flex;
+    align-items: flex-start;
+}
+.identite .nom {
+    flex: 1;
+    padding: 10px;
+}
+
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-size: 3.5rem;
+    padding-top: 20px;
+}
+h2 {
+    color: rgb(98, 35, 35) ;           
+    text-align: center;
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
+#image1{
+    border-radius: 15px;
+    padding-top: 8px;
+    padding-right: 10px;
+}
+
+
+.corps{
+display: flex;
+margin:0%;
+width: 100%;
+}
+
+.boite{       /*capacité empeche le déformement*/
+    width: 495px;
+    height: 512px;
+    padding-top: 15px;
+}
+
+
+@media (max-width:800px) {    /*responsive lorsq ecran<800px)*/
+
+   .identite{
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        transition: transform ease-out 0.5s; /*effet de transition, ease-in permet de commencer vite et de terminer doucement la transition ≠ ease-in*/
+        align-items: center;
+    }
+    .corps{
+        width: 90%;
+        height: 100%;
+        flex-direction: column;
+        transition: transform ease-out 0.5s; /*effet de transition, ease-in permet de commencer vite et de terminer doucement la transition ≠ ease-in*/
+        align-items: center;
+        padding:2%;
+        margin:2%;
+    }
+    
+    .skillcapacite{
+        padding: 15px;
+        margin-left:10px;
+    }   
+    
+}
+
+.capacite{
+    display: flex;
+    width: 50%;
+    margin:20px;
+}
+
+.skillcapacite::before{
+    content: "Mes capacités";
+    position: absolute;
+    top: -18px;
+    background-color: #c0c0c2;
+    padding: 5px 10px;
+    color: #0a0c10;
+}
+
+.skillcapacite{
+    display: flex;
+    border: 2px, solid, black;
+    padding: 26px;
+    border-radius: 30px;
+    position: relative;
+    background-color:rgb(192,127,6); 
+}
+
+
+.skillcapacite .name{
+    display: flex;
+    flex-direction: column;
+    color: #37373a;
+    font-size: 2em;
+    font-weight: 400;
+    margin-right: 30px;
+}
+
+.skillcapacite .name span{
+    margin: 7px 0;
+    box-shadow: 9.91px 9.91px 15px rgb(192,127,6), -9.91px -9.91px 15px   rgb(192,127,6);   
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 50px   ;
+    border:5px solid #ebecf0;
+    transition: 0.2s;
+    cursor:pointer;
+
+}
+
+.skillcapacite .name span:hover {
+       margin: 15px 0;
+       box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff, inset 9.91px 9.91px 15px #d9dade, inset -9.91px -9.91px 15px #ffffff ;
+       color:#313034
+}
+
+.niveau_capacite{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.niveau{
+    width: 200px;
+    height: 20px;
+    border-radius: 20px;
+  box-shadow: inset 6px 6px 6px #d9dade, inset -6px -6px 6px #ffffff;
+}
+
+.niveau .progress{
+    height: 100%;
+    background: linear-gradient(to right, #9a989c, #4a484e);
+    border-radius: 20px;
+}
+
+.niveau:nth-child(1) .progress {
+    width: 70%;
+}
+.niveau:nth-child(2) .progress {
+    width: 80%;
+}
+.niveau:nth-child(3) .progress {
+    width: 30%;
+}
+.niveau:nth-child(4) .progress {
+    width: 60%;
+}
+.niveau:nth-child(5) .progress {
+    width: 90%;
+}
+
+
+.competence{
+    color: whitesmoke;
+    margin-left: 10px;
+    padding-left: 40px;
+}
+
+h3{
+    margin-top: 10px;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h4{
+    font-size: 1.8rem;
+    margin: 0 ;
+    padding-left: 40px;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+.monstreboite{
+    display:block;
+}
+
+.monstre::before{
+    content: "Monstres combattus";
+    position: absolute;
+    top: -20px;
+    left:70%;
+    background-color: #c0c0c2;
+    padding: 5px 10px; 
+    color: rgb(17, 14, 14);
+    font-size: 1rem;
+  
+}
+
+.monstre{
+    display: flex;
+    align-content: space-around;
+    position: relative;
+       width: 95%;
+       height: 300px;
+       background-image: url('ressources/sang5.jpg');
+       border-radius: 15%;
+       margin: 30px auto;
+       border: 2px solid white;
+       align-items: center;
+    justify-content: space-around;
+    box-sizing: content-box;
+    padding:15px;
+   }
+
+.boitemonstre h4{
+    color:white;   
+}
+
+@media (max-width:800px) {    /*responsive lorsq ecran<800px)*/
+    .boitemonstre{
+    width:95%;
+    }
+    .monstre{
+         width: 100%;
+         height: 100%;
+         flex-direction: column;
+         transition: transform ease-out 0.5s;
+         padding-right: 5px;
+         padding-left: 5px;
+         margin-right: 0;
+    }
+    .img_monstre{
+        width: 80%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .footer{
+        text-align: center;
+    }   
+}
+
+footer{
+    padding-bottom: 0;
+    background-color: #2c2f31;
+    color: #a7999983;
+    box-shadow: 1px -4px 4px 1px #ff00002b;   /*ombrage au-sous footer*/
+    transition: box-shadows 1s;
+    text-align: end;
+    width: 100%;
+}
+
+footer p{
+    padding-right: 5%;
+    font-size: 1.5rem;
+    padding-top: 10px;
+    margin-bottom: 0px;
+}
+
+/*travail pr agrandir ombre au-dessus du footer en JS*/
+.shadowfooter{
+    box-shadow: 1px -8px 7px 2px #ff51002b;
+}
