@@ -188,7 +188,7 @@ article img:hover{
         height: 100%;
         flex-direction: column;
         transition: transform ease-out 0.5s; /*effet de transition, ease-in permet de commencer vite et de terminer doucement la transition ≠ ease-in*/
-        padding: 0 20px;
+        padding: 0 ;
     }
     
     .slide{
@@ -206,6 +206,9 @@ article img:hover{
     .nav_ul a:hover{
         animation: none;
         border-radius: 0;
+    }
+    .nav_ul li{
+        padding-left:20px;
     }
 }
 

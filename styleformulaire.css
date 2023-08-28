@@ -156,7 +156,7 @@ header a{
         left: -100%; /*pour faire disparaître le nav*/
         -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);     /*effet arrière trouble -webkit mit à cause du validator w3c*/
-        background-color: rgba(0, 0, 0, 0.4) ;        /*effet arrière trouble*/
+        background-color: rgba(0, 0, 0, 0.6) ;        /*effet arrière trouble*/
         width: 100%;
         height: 100%;
         flex-direction: column;
