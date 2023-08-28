@@ -186,6 +186,7 @@ header a{
 .identite {
     display: flex;
     align-items: flex-start;
+    padding: 15px 15px;
 }
 .identite .nom {
     flex: 1;
@@ -318,6 +319,9 @@ width: 100%;
 }
 
 @media (max-width:800px) {    /*responsive lorsq ecran<800px)*/
+    #image1{
+        padding-right: 0;
+    }
     .boite{
         width: 340px;
     }
@@ -354,6 +358,10 @@ width: 100%;
     }
      .niveau_capacite{
         margin-left:10px;
+    }
+
+    .skillcapacite .name span,.skillcapacite .name span:hover {
+        padding: 5px 20px;
     }
      
  }
