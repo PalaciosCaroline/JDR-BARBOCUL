@@ -193,6 +193,15 @@
         width: 100%;
         font-style: italic;
         color: #353535;
+        margin-bottom:80px;
+        padding-bottom:30px;
+    }
+
+    @media (max-width:800px) { 
+        section{
+            margin-bottom:20px;
+            padding-bottom:30px;
+        }
     }
 
     .debut{
@@ -278,8 +287,6 @@
         transition: box-shadows 1s;
         text-align: end;
         width: 100%;
-        position: fixed;
-        bottom: 0;
         padding-top:10px;
     }
 
